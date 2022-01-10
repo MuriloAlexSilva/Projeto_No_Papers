@@ -58,4 +58,13 @@ class CarroController extends Controller
 
         return view('carrinho', $data);
     }
+
+    public function excluirCarrinho($indice,Request $request){
+        $carrinho = session('cart', []);
+        if(isset($carrinho[$indice])){
+            unset($carrinho[$indice]);
+        };
+        session(["cart" => $carrinho]);
+        return redirect()->route('ver_carrinho');
+    }
 }

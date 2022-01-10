@@ -17,6 +17,7 @@ class CreateUsuariosTable extends Migration
             $table->increments("id");
             $table->string("nomeCompleto",100);
             $table->string("telefone",50);
+            $table->string("email",100);
             $table->string("cpf",25)->unique();
             $table->datetime("data_nascimento");
             $table->string("login",100)->unique();

@@ -6,7 +6,8 @@
         <div class="col-12">
             <h2 class="mb-3">Cadastre-se</h2>
         </div>
-        <form action="" method="post">
+        <form action="{{route('cadastrar_cliente')}}" method="post">
+            @csrf
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">

@@ -16,10 +16,10 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($cart as $item)
+                @foreach($cart as $indice => $item)
                     <tr>
                         <td>
-                            <a href="#" class="btn btn-danger btn-sm">
+                            <a href="{{route('carrinho_excluir',['indice' => $indice])}}" class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </td>
