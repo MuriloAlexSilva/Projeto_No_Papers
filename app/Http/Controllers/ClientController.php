@@ -25,7 +25,7 @@ class ClientController extends Controller
         $usuario->data_nascimento = $request->input('data_nascimento','');
         $usuario->login = $request->input('login','');
         $senha = $request->input('password','');
-        $usuario->password = \Hash::make($senha);//Comando para criptografar a senha
+        // $usuario->password = \Hash::make($senha);//Comando para criptografar a senha
 
         $clienteService = new ClienteService();
         $result = $clienteService->salvarUsuario($usuario);
