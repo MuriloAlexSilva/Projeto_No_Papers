@@ -18,12 +18,16 @@
                 <div class="navbar-nav">
                     <a href="{{route('home')}}" class="nav-link">Home</a>
                     <a href="{{route('categoria')}}" class="nav-link">Categoria de Carros</a>
-                    <a href="{{route('cadastrar')}}" class="nav-link">Cadastre-se</a>
-                    @if(!Auth::user())
-                        <a href="{{route('logar')}}" class="nav-link">Entrar</a>
-                    @else
-                        <a href="{{route('sair')}}" class="nav-link">Logout</a>
-                    @endif
+                    @guest
+                        <a href="/register" class="nav-link">Cadastre-se</a>
+                        <a href="/login" class="nav-link">Entrar</a>  
+                    @endguest
+                    @auth
+                        <form action="/logout" method="post">
+                            @csrf
+                            <a href="/logout" class="nav-link" onclick="event.preventDefault();this.closest('form').submit();">Sair</a>
+                        </form>
+                    @endauth
                 </div>
             </div>
             <a href="{{route('ver_carrinho')}}" class="btn btn-sm"><i class="fa fa-shopping-cart"></i></a>
@@ -31,23 +35,7 @@
     </header>
     <div class="container">
         <div class="row">
-            @if(Auth::user())
-                <div class="col-12">
-                    <p class="text-right">Seja bem vindo, {{Auth::user()->nomeCompleto}},</p>
-                    <a href="{{route('sair')}}">sair</a>
-                </div>
-            @endif
-
-            @if($message = Session::get("err"))
-                <div class="col-12">
-                    <div class="alert alert-danger">{{$message}}</div>
-                </div>
-            @endif
-            @if($message = Session::get("ok"))
-                <div class="col-12">
-                    <div class="alert alert-success">{{$message}}</div>
-                </div>
-            @endif
+            
             @yield('content')
         </div>
     </div>

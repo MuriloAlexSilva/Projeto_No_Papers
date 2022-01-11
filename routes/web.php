@@ -19,9 +19,13 @@ Route::match(['get','post'],'/',[CarroController::class,'index'])->name('home');
 Route::match(['get','post'],'/categoria',[CarroController::class,'categoria'])->name('categoria');
 Route::match(['get','post'],'/{idcategoria}/categoria',[CarroController::class,'categoria'])->name('categoria_por_id');
 Route::match(['get','post'],'/cadastrar',[ClientController::class,'cadastrar'])->name('cadastrar');
-Route::match(['get','post'],'/cliente/cadastrar',[ClientController::class,'cadastrarCliente'])->name('cadastrar_cliente');
+// Route::match(['get','post'],'/cliente/cadastrar',[ClientController::class,'cadastrarCliente'])->name('cadastrar_cliente');
 Route::match(['get','post'],'/{idcarro}/carrinho/adicionar',[CarroController::class,'adicionarCarrinho'])->name('adicionar_carrinho');
-Route::match(['get','post'],'/carrinho',[CarroController::class,'verCarrinho'])->name('ver_carrinho');
+Route::match(['get','post'],'/carrinho',[CarroController::class,'verCarrinho'])->name('ver_carrinho')->middleware('auth');
 Route::match(['get','post'],'/{indice}/excluircarrinho',[CarroController::class,'excluirCarrinho'])->name('carrinho_excluir');
-Route::match(['get','post'],'/logar',[UsuarioController::class,'logar'])->name('logar');
-Route::get('/sair',[UsuarioController::class,'sair'])->name('sair');
+// Route::match(['get','post'],'/logar',[UsuarioController::class,'logar'])->name('logar');
+// Route::get('/sair',[UsuarioController::class,'sair'])->name('sair');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('/dashboard');
+})->name('dashboard');
