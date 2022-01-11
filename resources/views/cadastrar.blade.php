@@ -1,8 +1,7 @@
 @extends("layouts/main")
 
-@section('content') 
+@section("content") 
 
- 
         <div class="col-12">
             <h2 class="mb-3">Cadastre-se</h2>
         </div>
@@ -44,7 +43,9 @@
                         Senha: <input type="password" name="password" class="form-control">
                     </div>
                 </div>
-                <input type="submit" class="btn btn-success btn-sm" value="Cadastrar">
+                <div>
+                    <p><center><input type="submit" class="btn btn-success btn-sm" value="Cadastrar"></center></p>
+                </div>
             </div>
         </form>
 

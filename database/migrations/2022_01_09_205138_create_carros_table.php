@@ -17,7 +17,7 @@ class CreateCarrosTable extends Migration
             $table->increments("id");
             $table->string("nome",100);
             $table->decimal("valor",10,2);
-            $table->string("foto",100)->nullable();
+            $table->string("foto",100)->nullable();//Pode ser nulo
             $table->string("descricao",255)->nullable();
             $table->integer("categoria_id")->unsigned();
             $table->timestamps();
