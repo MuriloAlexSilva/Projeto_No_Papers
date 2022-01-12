@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('telefone');
-            $table->string('data_nascimento');
+            $table->string('data_nascimento')->nullable();
             $table->string('cpf');
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();

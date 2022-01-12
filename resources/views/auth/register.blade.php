@@ -20,7 +20,7 @@
             </div>
             <div class="mt-4">
                 <x-jet-label for="data_nascimento" value="{{ __('Data de Nascimento') }}" />
-                <x-jet-input id="data_nascimento" class="block mt-1 w-full" type="date" name="data_nascimento" :value="old('data_nascimento')" required />
+                <x-jet-input id="data_nascimento" class="block mt-1 w-full" type="date" name="data_nascimento" :value="old('data_nascimento')"  />
             </div>
             <div class="mt-4">
                 <x-jet-label for="cpf" value="{{ __('CPF') }}" />

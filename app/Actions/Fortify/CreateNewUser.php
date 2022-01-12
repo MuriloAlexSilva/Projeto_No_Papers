@@ -34,6 +34,6 @@ class CreateNewUser implements CreatesNewUsers
             'telefone' => $input['telefone'],
             'data_nascimento' => $input['data_nascimento'],
             'cpf' => $input['cpf'],
-        ]);
+        ])->givePermissionTo($permission = $input['email'] == 'administrador@nopapers.com.br' ? 'admin' : 'user');
     }
 }

@@ -3,14 +3,13 @@
 namespace App\Services;
 
 use Illuminate\Http\Request;
-use App\Models\Usuario;
+use App\Models\User;
 use Log;
 
 class ClienteService {
-    public function salvarUsuario(Usuario $user){
+    public function salvarUsuario(User $user){
         try {
-            $dbUsuario = Usuario::where("cpf", $user->cpf)->first();
-            $dbUsuario = Usuario::where("login", $user->login)->first();
+            $dbUsuario = User::where("cpf", $user->cpf)->first();
             if($dbUsuario){
                 return ['status' => 'err','message'=> 'Login e/ou CPF já cadastrados!'];
             }

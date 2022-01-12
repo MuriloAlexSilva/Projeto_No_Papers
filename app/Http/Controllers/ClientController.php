@@ -28,7 +28,7 @@ class ClientController extends Controller
         // $usuario->password = \Hash::make($senha);//Comando para criptografar a senha
 
         $clienteService = new ClienteService();
-        $result = $clienteService->salvarUsuario($usuario);
+        $result = $clienteService->salvarUsuario($usuario)->givePermissionTo('vendedor');
 
         $message = $result["message"];
         $status = $result["status"];

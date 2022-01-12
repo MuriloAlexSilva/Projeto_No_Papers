@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Carro;
 use App\Models\Categoria;
+use App\Models\Pedido;
 
 class CarroController extends Controller
 {
@@ -52,6 +53,7 @@ class CarroController extends Controller
         return redirect()->route('home');
     }
 
+    
     public function verCarrinho(Request $request){
         $carrinho = session('cart',[]);
         $data = ['cart'=>$carrinho];
@@ -67,4 +69,6 @@ class CarroController extends Controller
         session(["cart" => $carrinho]);
         return redirect()->route('ver_carrinho');
     }
+
+    
 }

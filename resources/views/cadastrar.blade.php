@@ -3,9 +3,9 @@
 @section("content") 
 
         <div class="col-12">
-            <h2 class="mb-3">Cadastre-se</h2>
+            <h2 class="mb-3">Cadastre o novo Vendedor</h2>
         </div>
-        <form action="{{route('cadastrar_cliente')}}" method="post">
+        <form action="{{route('cadastrar_vendedor')}}" method="post">
             @csrf
             <div class="row">
                 <div class="col-12">
@@ -26,16 +26,6 @@
                 <div class="col-6">
                     <div class="form-group">
                         Cpf: <input type="text" name="cpf" class="form-control">
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="form-group">
-                        Data de Nascimento: <input type="date" name="data_nascimento" class="form-control">
-                    </div>
-                </div>
-                <div class="col-6">
-                    <div class="form-group">
-                        Login: <input type="text" name="login" class="form-control">
                     </div>
                 </div>
                 <div class="col-6">
