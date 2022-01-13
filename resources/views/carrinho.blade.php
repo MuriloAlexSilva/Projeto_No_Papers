@@ -50,6 +50,7 @@
                 </tr>
                 <tr>
                     <td>
+                        <!-- //Aqui não consigo enviar as datas para salvar no banco de dados -->
                         <center>Data de Check-In: <input type="date" name="data_checkIn" class="form-control"></center>
                     </td>
                     <td>

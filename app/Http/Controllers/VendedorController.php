@@ -26,10 +26,13 @@ class VendedorController extends Controller
         $senha = $request->input('password');
         $vendedor->password = \Hash::make($senha);//Comando para criptografar a senha
         $vendedor->save();
+
+        //Aqui não consigo como pegar o id do vendedor cadastrado acima 
+        //Pois tenho que liberar a funçao de realizar check out somente pelo vendedor
         $permission = new Permission();
         $permission->permission_id = 2;
         $permission->model_type = 'App\Models\User';
-        $permission->model_id = ;
+        $permission->model_id = ;////Aqui
         return ['status' => 'ok','message'=> 'Vendedor cadastrado com sucesso!'];
 
         $message = $result["message"];
