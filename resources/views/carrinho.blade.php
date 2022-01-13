@@ -10,7 +10,9 @@
         <table class="table">
             <thead>
                 <tr>
+                @can('vendedor')
                     <th></th>
+                @endcan
                     <th>Nome</th>
                     <th>Foto</th>
                     <th>Valor da diaria</th>
@@ -21,11 +23,15 @@
                 @php $total = 0; @endphp
                 @foreach($cart as $indice => $item)
                     <tr>
+                        @can('vendedor')
                         <td>
                             <a href="{{route('carrinho_excluir',['indice' => $indice])}}" class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </td>
+
+                        @endcan
+                        
                         <td>{{$item->nome}}</td>
                         <td><img src="{{asset($item->foto)}}" height="50"></td>
                         <td>R$ {{$item->valor}}</td>
