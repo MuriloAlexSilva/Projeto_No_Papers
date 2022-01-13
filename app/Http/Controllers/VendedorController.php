@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Permission;
 use App\Services\ClienteService;
 
 class VendedorController extends Controller
@@ -24,13 +25,16 @@ class VendedorController extends Controller
         $vendedor->cpf = $request->input('cpf','');
         $senha = $request->input('password');
         $vendedor->password = \Hash::make($senha);//Comando para criptografar a senha
-
         $vendedor->save();
-        return ['status' => 'ok','message'=> 'Usuário cadastrado com sucesso!'];
+        $permission = new Permission();
+        $permission->permission_id = 2;
+        $permission->model_type = 'App\Models\User';
+        $permission->model_id = ;
+        return ['status' => 'ok','message'=> 'Vendedor cadastrado com sucesso!'];
 
         $message = $result["message"];
         $status = $result["status"];
         $request->session()->flash($status,$message);
-        return redirect()->route('cadastrar');
+        return redirect()->route('cadastrar')->givePermissionTo('vendedor');
     }
 }

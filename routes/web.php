@@ -5,6 +5,7 @@ use App\Http\Controllers\CarroController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\VendedorController;
+use App\Http\Controllers\PedidoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,11 +25,11 @@ Route::match(['get','post'],'/realizarPedido',[PedidoController::class,'realizar
 Route::match(['get','post'],'/cadastrarvendedor',[VendedorController::class,'cadastrarVendedor'])->name('cadastrar_vendedor');
 Route::match(['get','post'],'/{idcarro}/carrinho/adicionar',[CarroController::class,'adicionarCarrinho'])->name('adicionar_carrinho');
 Route::match(['get','post'],'/carrinho',[CarroController::class,'verCarrinho'])->name('ver_carrinho')->middleware('auth');
-Route::match(['get','post'],'/compras/historico',[CarroController::class,'historico'])->name('compra_historico')->middleware('auth');
-Route::match(['get','post'],'/{indice}/excluircarrinho',[CarroController::class,'excluirCarrinho'])->name('carrinho_excluir');
+Route::match(['get','post'],'/compras/historico',[PedidoController::class,'historico'])->name('compra_historico')->middleware('auth');
+Route::match(['get','post'],'/{indice}/excluircarrinho',[CarroController::class,'excluirCarrinho'])->name('carrinho_excluir')->middleware('auth');
 // Route::match(['get','post'],'/logar',[UsuarioController::class,'logar'])->name('logar');
-Route::post('/compras/meuspedidos',[CarroController::class,'meusPedidos'])->name('meusPedidos');
-
+Route::match(['get','post'],'/compra/meuspedidos',[PedidoController::class,'meusPedidos'])->name('meusPedidos')->middleware('auth');
+Route::post('/carrinho/finalizar',[PedidoController::class,'finalizar'])->name('carrinho_finalizar')->middleware('auth');
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('/dashboard');
 })->name('dashboard');
