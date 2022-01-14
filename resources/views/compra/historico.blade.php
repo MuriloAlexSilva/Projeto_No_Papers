@@ -7,8 +7,10 @@
     <div class="col-12">
         <table class="table table-bordered">
             <tr>
+                <th>Carro</th>
                 <th>Data do Check-In</th>
                 <th>Data do Check-Out</th>
+                <th>Valor Total</th>
 
             </tr>
 
@@ -16,8 +18,10 @@
 
                 <tr>
                     <!-- TEria que mostrar a tela de check in para conseguir calcular a qtdd de dias no controller -->
+                    <td>{{$ped->carro_id}}</td>
                     <td>{{$ped->data_checkIn->format("d/m/Y H:i")}}</td>
                     <td>{{$ped->data_checkOut->format("d/m/Y H:i")}}</td>
+                    <td>{{$ped->valor_total}}</td>
 
                 </tr>
             

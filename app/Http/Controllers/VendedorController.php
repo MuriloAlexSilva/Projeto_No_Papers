@@ -6,38 +6,29 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Permission;
 use App\Services\ClienteService;
+use Illuminate\Support\Facades\Hash;
+
 
 class VendedorController extends Controller
 {
-        public function cadastrar(Request $request){
-            $data = [];
-            
-            return view('cadastrar',$data);
-        }
-        
-        public function cadastrarVendedor(Request $request){
-        $values = $request->all();
+    public function cadastrar(Request $request){
+        $data = [];
+        return view('cadastrar',$data);
+    }
 
-        $vendedor = new User();
-        $vendedor->name = $request->input('nome','');
-        $vendedor->telefone = $request->input('telefone','');
-        $vendedor->email = $request->input('email','');
-        $vendedor->cpf = $request->input('cpf','');
-        $senha = $request->input('password');
-        $vendedor->password = \Hash::make($senha);//Comando para criptografar a senha
-        $vendedor->save();
+    public function cadastrarVendedor(Request $request){
 
-        //Aqui não consigo como pegar o id do vendedor cadastrado acima 
-        //Pois tenho que liberar a funçao de realizar check out somente pelo vendedor
-        $permission = new Permission();
-        $permission->permission_id = 2;
-        $permission->model_type = 'App\Models\User';
-        $permission->model_id = ;////Aqui
-        return ['status' => 'ok','message'=> 'Vendedor cadastrado com sucesso!'];
+        User::create([
+            'name' => $request->input('nome',''),
+            'email' => $request->input('email',''),
+            'password' => Hash::make($request->input('password','')),
+            'telefone' => $request->input('telefone',''),
+            'cpf' => $request->input('cpf',''),
+        ])->givePermissionTo($permission = "vendedor");
 
-        $message = $result["message"];
-        $status = $result["status"];
+        $message = 'Sucesso';
+        $status = 'ok';
         $request->session()->flash($status,$message);
-        return redirect()->route('cadastrar')->givePermissionTo('vendedor');
+        return redirect()->route('cadastrar');
     }
 }

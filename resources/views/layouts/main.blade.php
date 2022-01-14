@@ -27,6 +27,10 @@
                     @auth
                         @can('admin')
                             <a href="cadastrar" class="nav-link">Cadastre Vendedor</a>
+                            <a href="{{route('relatorio_financeiro')}}" class="nav-link">Relatório Financeiro</a>
+                        @endcan
+                        @can('vendedor')
+                            <a href="{{route('check_out')}}" class="nav-link">Realizar Check-Out</a>                           
                         @endcan
                         <a href="{{route('compra_historico')}}" class="nav-link">Meus Pedidos</a>
                         <form action="/logout" method="post">

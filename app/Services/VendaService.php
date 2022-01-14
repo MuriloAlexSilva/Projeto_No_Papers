@@ -14,15 +14,23 @@ class VendaService{
         // $date1 = Carbon::createFromFormat('Y-m-d',$checkIn);
         // $date2 = Carbon::createFromFormat('Y-m-d',$checkOut);
         // $valueDays = $date2->diffInDays($date1);
-      
+
+        $temPermissaoDeVendedor = $user->hasPermissionTo('vendedor');
+
         try {
+
+            if (!$temPermissaoDeVendedor) {
+                Log::error("ERRO:VENDA SERVICE",['message' => 'Sem permissão']);
+                return ['status' => 'err', 'message'=> 'Sem permissão'];
+            }
+
             \DB::beginTransaction();
             $dtHoje = new \DateTime();
             $pedido = new Pedido();
             $pedido->usuario_id = $user->id;
             $pedido->status = 'PEN';
-            $pedido->data_checkIn =$dtHoje->Format("Y-m-d");
-            $pedido->data_checkOut =$dtHoje->Format("Y-m-d");
+            $pedido->data_checkIn =$request->input('data_checkIn','');
+            $pedido->data_checkOut =$request->input('data_checkOut','');
             $pedido->save();
 
             foreach($item as $p){

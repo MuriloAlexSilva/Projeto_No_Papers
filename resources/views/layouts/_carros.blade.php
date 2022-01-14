@@ -7,7 +7,7 @@
                     <center>
                         <div class="card-body">
                             <h6 class="card-title">{{$car->nome}} - R$ {{$car->valor}}</h6>
-                            <p><a href="{{route('adicionar_carrinho',['idcarro' => $car->id])}}" class="btn btn-sm btn-secondary">Reservar</a></p>
+                            <p><a href="{{route('adicionar_carrinho',['idcarro' => $car->id])}}" class="btn btn-sm btn-secondary">Reservar</a></p> 
                         </div>
                     </center>
                 </div>
