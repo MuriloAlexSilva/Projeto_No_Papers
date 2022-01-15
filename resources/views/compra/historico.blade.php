@@ -17,6 +17,7 @@
             @foreach($lista as $ped)
 
                 <tr>
+         
                     <!-- TEria que mostrar a tela de check in para conseguir calcular a qtdd de dias no controller -->
                     <td>{{$ped->carro_id}}</td>
                     <td>{{$ped->data_checkIn->format("d/m/Y H:i")}}</td>

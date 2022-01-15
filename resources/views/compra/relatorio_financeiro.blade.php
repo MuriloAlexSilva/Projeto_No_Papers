@@ -18,13 +18,7 @@
                     </p>
                     <p>Se selecionar o Único Cliente, digite o nome? </p>
                     <p>
-                        <select name="cliente">
-                            @php
-                                
-                            @endphp
-                            <option value="todos">Todos Clientes</option>
-                            <option value="clienteUnico">Único Cliente</option>
-                        </select>
+                      <input type="text" name="user" id="">
                     </p>
                     <p>Data Inicial da consulta: <input type="date" name="data_inicial" ><br></p>
                     <p>Data Final da consulta: <input type="date" name="data_final" ><br></p>

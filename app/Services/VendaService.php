@@ -11,26 +11,27 @@ use Illuminate\Http\Request;
 
 class VendaService{
     public function finalizarVenda($item = [], User $user){
+        
         // $date1 = Carbon::createFromFormat('Y-m-d',$checkIn);
         // $date2 = Carbon::createFromFormat('Y-m-d',$checkOut);
         // $valueDays = $date2->diffInDays($date1);
 
-        $temPermissaoDeVendedor = $user->hasPermissionTo('vendedor');
+        // $temPermissaoDeVendedor = $user->hasPermissionTo('vendedor');
 
         try {
 
-            if (!$temPermissaoDeVendedor) {
-                Log::error("ERRO:VENDA SERVICE",['message' => 'Sem permissão']);
-                return ['status' => 'err', 'message'=> 'Sem permissão'];
-            }
+        //     if (!$temPermissaoDeVendedor) {
+        //         Log::error("ERRO:VENDA SERVICE",['message' => 'Sem permissão']);
+        //         return ['status' => 'err', 'message'=> 'Sem permissão'];
+        //     }
 
             \DB::beginTransaction();
             $dtHoje = new \DateTime();
             $pedido = new Pedido();
             $pedido->usuario_id = $user->id;
             $pedido->status = 'PEN';
-            $pedido->data_checkIn =$request->input('data_checkIn','');
-            $pedido->data_checkOut =$request->input('data_checkOut','');
+            $pedido->data_checkIn = $dtHoje;//Tem que arrumar a data para receber o input
+            $pedido->data_checkOut = $dtHoje;///Tem que arrumar a data para receber o input
             $pedido->save();
 
             foreach($item as $p){

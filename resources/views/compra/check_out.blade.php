@@ -6,15 +6,24 @@
     <div class="col-12">
         <h2>Selecione o carro que será feito o Check-Out:</h2>
     </div>
-    <input type="text" name="deletar" id="deletar">
-    <form action="/carros/leave/{id}" method="get">
-        @csrf
-        @method('delete')
-        <button type="submit" class="btn btn-danger delete-btn">
-            Check-Out locação
-        </button>
-    </form>
+    <table class="table table-bordered d-flex">
+        <tr>
+            <td>Id</td>
+            <td>Carro</td>
+            <td>Pedido</td>
+            <td>Check-Out</td>
+        </tr>
+        @foreach($checkOut as $item)
+            <tr>
 
+                <td>{{$item['id']}}</td>
+                <td>{{$item['carro_id']}}</td>
+                <td>{{$item['pedido_id']}}</td>
+                <td><a href={{"delete/".$item['id']}}>Check-Out</a></td>
+
+            </tr>
+        @endforeach
+    </table>
 
 @endsection
 

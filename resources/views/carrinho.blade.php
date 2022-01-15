@@ -23,14 +23,14 @@
                 @php $total = 0; @endphp
                 @foreach($cart as $indice => $item)
                     <tr>
-                        @can('vendedor')
+                   
                         <td>
                             <a href="{{route('carrinho_excluir',['indice' => $indice])}}" class="btn btn-danger btn-sm">
                                 <i class="fa fa-trash"></i>
                             </a>
                         </td>
 
-                        @endcan
+                        
                         
                         <td>{{$item->nome}}</td>
                         <td><img src="{{asset($item->foto)}}" height="50"></td>
@@ -51,22 +51,22 @@
                 <tr>
                     <td>
                         <!-- //Aqui não consigo enviar as datas para salvar no banco de dados -->
-                        <center>Data de Check-In: <input type="date" name="data_checkIn" class="form-control"></center>
                     </td>
                     <td>
-                        <center>Data de Check-Out: <input type="date" name="data_checkOut" class="form-control"></center>
-                    </td>
-                </tr>
-                <div>
-                </div>
-            </tfooter>
-
-        </table>
-
-        <form action="{{route('carrinho_finalizar')}}" method="post">
-            @csrf
-            <input type="submit" value="Finalizar campo" class="btn btn-lg btn-success">
-        </form>
+                        </td>
+                    </tr>
+                    <div>
+                        </div>
+                    </tfooter>
+                    
+                </table>
+                
+                <form action="{{route('carrinho_finalizar')}}" method="post">
+                    @csrf
+                    <center>Data de Check-In: <input type="date" name="data_checkIn" class="form-control"></center>
+                    <center>Data de Check-Out: <input type="date" name="data_checkOut" class="form-control"></center>
+                    <input type="submit" value="Finalizar campo" class="btn btn-lg btn-success">
+                </form>
         <!-- <div class="col-12">
             <center>
                 <h2 class="mb-3">Faça agora o seu pedido:</h2>

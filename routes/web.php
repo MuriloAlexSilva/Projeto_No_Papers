@@ -35,4 +35,5 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('/dashboard');
 })->name('dashboard');
 Route::match(['get','post'],'/pdf',[PedidoController::class,'relatorioFinanceiropdf'])->name('relatorioFinanceiropdf')->middleware('auth');
-// Route::match(['get','delete'],'/carros/leave',[PedidoController::class,'leaveCar'])->name('check_out')->middleware('auth');
+
+Route::match(['get','post','delete'],'compras/delete/{id}',[PedidoController::class,'destroy'])->middleware('auth');

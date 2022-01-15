@@ -18,7 +18,7 @@ class PedidoController extends Controller
     $item = session('cart', []);
    
     $vendaService = new VendaService();
-    $result = $vendaService->finalizarVenda($item,\Auth::user(),);
+    $result = $vendaService->finalizarVenda($item,\Auth::user());
 
     if($result["status"] == "ok"){
       $request->session()->forget("cart");
@@ -31,11 +31,13 @@ class PedidoController extends Controller
   }
 
   public function historico(Request $request){
+
     $data  = [];
     $idusuario = \Auth::user()->id;
-    $listaPedido = Pedido::where("usuario_id",$idusuario);
-    $listaItenPedido = ItensPedido::where("usuario_id",$idusuario)->orderBy("data_checkIn","desc")->get();
-    $data["lista"] = $listaProduto;
+  
+    $listaPedido = Pedido::where("usuario_id",$idusuario)->orderBy("data_checkIn","desc")->get();
+    $data["lista"] = $listaPedido;
+  
     return view("compra/historico",$data);
   }
 
@@ -56,8 +58,20 @@ class PedidoController extends Controller
     return view('compra/relatorio_financeiro');
   }
   public function fazercheckOut(){
-    return view('compra/check_out');
+
+    $data=ItensPedido::all();
+    return view('compra/check_out',['checkOut'=>$data]);
+    
   }
+
+
+  public function destroy($id){
+
+    ItensPedido::findOrFail($id)->delete();
+    return redirect('/compras/checkout')->with('msg','Carro cancelado com sucesso!');
+
+}
+
   // public function leaveCar(Request $request){
   //   $id = $request->input('deletar');
  
