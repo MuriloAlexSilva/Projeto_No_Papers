@@ -15,10 +15,12 @@ use PDF;
 class PedidoController extends Controller
 {
   public function finalizar(Request $request){
+    $checkIn = $request->input('data_checkIn');
+    $checkOut = $request->input('data_checkOut');
     $item = session('cart', []);
-   
+    
     $vendaService = new VendaService();
-    $result = $vendaService->finalizarVenda($item,\Auth::user());
+    $result = $vendaService->finalizarVenda($item,\Auth::user(),$checkIn,$checkOut);
 
     if($result["status"] == "ok"){
       $request->session()->forget("cart");

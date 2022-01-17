@@ -2,7 +2,7 @@
 
 @section("content") 
     <div class="col-12">
-        <h2>Minhas Compras</h2>
+        <h2>Meus Pedidos</h2>
     </div>
     <div class="col-12">
         <table class="table table-bordered">
