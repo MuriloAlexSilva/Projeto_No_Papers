@@ -11,27 +11,19 @@ class CarroController extends Controller
 {
     public function index(Request $request){
         $data = [];
-
-        //Buscar todos os carros
         $listaCarros = Carro::all();
-        //Select nos dados
         $data["lista"] = $listaCarros;
-        //Envia os dados para a home
         return view("home",$data);
     }
 
     public function categoria($idcategoria = 0, Request $request){
         $data = [];
         $listaCategorias = Categoria::all();
-       
         $queryCarro = Carro::limit(10);
-
         if ($idcategoria != 0) {
-            //Onde categoria_id = $idcategoria
             $queryCarro->where("categoria_id",$idcategoria);
         }
         $listaCarros = $queryCarro->get();
-
         $data["lista"] = $listaCarros;
         $data["listaCategoria"] = $listaCategorias;
         $data["idcategoria"] = $idcategoria;
@@ -39,25 +31,18 @@ class CarroController extends Controller
     }
 
     public function adicionarCarrinho($idCarro = 0,Request $request){
-        //Buscar o carro pelo id
         $car = Carro::find($idCarro);
         if ($car) {
-            //Encontrou o carro
-            //Buscar da sessao o carrinho atual
             $carrinho = session('cart', []);
-
             array_push($carrinho,$car);
             session(['cart' => $carrinho]);
         }
-
         return redirect()->route('home');
     }
-
     
     public function verCarrinho(Request $request){
         $carrinho = session('cart',[]);
         $data = ['cart'=>$carrinho];
-
         return view('carrinho', $data);
     }
 
@@ -68,7 +53,5 @@ class CarroController extends Controller
         };
         session(["cart" => $carrinho]);
         return redirect()->route('ver_carrinho');
-    }
-
-    
+    }   
 }

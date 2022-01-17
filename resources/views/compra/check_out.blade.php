@@ -15,15 +15,12 @@
         </tr>
         @foreach($checkOut as $item)
             <tr>
-
                 <td>{{$item['id']}}</td>
                 <td>{{$item['carro_id']}}</td>
                 <td>{{$item['pedido_id']}}</td>
                 <td><a href={{"delete/".$item['id']}}>Check-Out</a></td>
-
             </tr>
         @endforeach
     </table>
-
 @endsection
 

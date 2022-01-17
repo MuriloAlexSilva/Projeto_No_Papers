@@ -11,6 +11,6 @@ class Carro extends RModel
     return $this->belongsTo('App\Models\Categoria');
   }
   public function cars(){
-  return $this->belongsTo('App\Models\ItensPedido');
+    return $this->belongsTo('App\Models\ItensPedido');
   }
 }

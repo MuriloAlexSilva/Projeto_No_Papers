@@ -33,22 +33,19 @@ class VendaService{
             $pedido->data_checkIn = $checkIn;
             $pedido->data_checkOut = $checkOut;
             $pedido->save();
-
             foreach($item as $p){
                 $itens = new ItensPedido();
                 $itens->valor_total = ($p->valor)* $valueDays;
                 $itens->carro_id = $p->id;
-                $itens->pedido_id = $pedido->id;
-                
+                $itens->pedido_id = $pedido->id;               
                 $itens->save();
             }
-
             \DB::commit();
-            return ['status' => 'ok','message' => 'Venda finalizada com sucesso'];
+                return ['status' => 'ok','message' => 'Venda finalizada com sucesso'];
         } catch (\Exception $e) {
             \DB::rollback();
             Log::error("ERRO:VENDA SERVICE",['message' => $e->getMessage()]);
-            return ['status' => 'err', 'message'=> 'Venda não pode ser finalizada'];
+                return ['status' => 'err', 'message'=> 'Venda não pode ser finalizada'];
         }
     }
 }

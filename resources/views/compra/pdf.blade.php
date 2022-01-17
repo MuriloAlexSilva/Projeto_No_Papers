@@ -7,7 +7,6 @@
     <title>Relatório Financeiro</title>
 </head>
 <body>
-
         <div>
             <h2>Minhas Compras</h2>
         </div>
@@ -24,7 +23,6 @@
                         <td>{{$ped->pedido_id}}</td>
                         <td>{{$ped->valor_total}}</td>
                     </tr>
-
                 @endforeach
             </table>
         </div>

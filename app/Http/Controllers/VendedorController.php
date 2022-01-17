@@ -17,7 +17,6 @@ class VendedorController extends Controller
     }
 
     public function cadastrarVendedor(Request $request){
-
         User::create([
             'name' => $request->input('nome',''),
             'email' => $request->input('email',''),
@@ -25,7 +24,6 @@ class VendedorController extends Controller
             'telefone' => $request->input('telefone',''),
             'cpf' => $request->input('cpf',''),
         ])->givePermissionTo($permission = "vendedor");
-
         $message = 'Sucesso';
         $status = 'ok';
         $request->session()->flash($status,$message);
