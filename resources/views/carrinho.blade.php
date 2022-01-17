@@ -8,9 +8,7 @@
         <table class="table">
             <thead>
                 <tr>
-                @can('vendedor')
-                    <th></th>
-                @endcan
+                    <th>Excluir</th>
                     <th>Nome</th>
                     <th>Foto</th>
                     <th>Valor da diaria</th>
