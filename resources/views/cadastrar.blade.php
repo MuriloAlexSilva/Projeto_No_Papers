@@ -1,9 +1,13 @@
 @extends("layouts/main")
 
 @section("content") 
-        <div class="col-12">
-            <h2 class="mb-3">Cadastre o novo Vendedor</h2>
-        </div>
+        <p>
+            <center>
+                <div class="col-12">
+                    <h2 class="mb-3">Cadastre o novo Vendedor</h2>
+                </div>
+            </center>
+        </p>
         <form action="{{route('cadastrar_vendedor')}}" method="post">
             @csrf
             <div class="row">
@@ -33,7 +37,7 @@
                     </div>
                 </div>
                 <div>
-                    <p><center><input type="submit" class="btn btn-success btn-sm" value="Cadastrar"></center></p>
+                    <p><center><input type="submit" class="btn btn-success btn-bg" value="Cadastrar"></center></p>
                 </div>
             </div>
         </form>

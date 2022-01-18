@@ -1,11 +1,15 @@
 @extends("layouts/main")
 
 @section("content") 
+    <p>
+        <center>
+            <div class="col-12">
+                <h2>Meus Pedidos</h2>
+            </div>
+        </center>
+    </p>
     <div class="col-12">
-        <h2>Meus Pedidos</h2>
-    </div>
-    <div class="col-12">
-        <table class="table table-bordered">
+        <table class="table table-dark table-striped">
             <tr>
                 <th>Carro</th>
                 <th>Data do Check-In</th>

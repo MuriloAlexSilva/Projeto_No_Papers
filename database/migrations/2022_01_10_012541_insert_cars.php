@@ -39,6 +39,17 @@ class InsertCars extends Migration
         $car6 = new \App\Models\Carro(['nome' => 'Golf','valor' => 90,'foto' => 'images/golf.jpg','descricao' => 'Sport TOP para viagens','categoria_id' => $cat2 -> id]);
         $car6->save();
 
+        $car7 = new \App\Models\Carro(['nome' => 'Corvette','valor' => 490,'foto' => 'images/corvette.jpg','descricao' => 'Sport antigo','categoria_id' => $cat2 -> id]);
+        $car7->save();
+
+        $car8 = new \App\Models\Carro(['nome' => 'Dodge Ram','valor' => 390,'foto' => 'images/dodgeram.jpg','descricao' => 'Utilitário para toda hora','categoria_id' => $cat -> id]);
+        $car8->save();
+
+        $car9 = new \App\Models\Carro(['nome' => 'Porshe','valor' => 420,'foto' => 'images/porshe.jpg','descricao' => 'Super Sport ','categoria_id' => $cat2 -> id]);
+        $car9->save();
+
+        $car10 = new \App\Models\Carro(['nome' => 'Tucson','valor' => 160,'foto' => 'images/tucson.jpg','descricao' => 'SUV de entrada','categoria_id' => $cat3 -> id]);
+        $car10->save();
     }
 
     /**

@@ -6,7 +6,7 @@
     <div class="col-12">
         <h2>Selecione o carro que será feito o Check-Out:</h2>
     </div>
-    <table class="table table-bordered d-flex">
+    <table class="table table-success table-striped">
         <tr>
             <td>Id</td>
             <td>Carro</td>

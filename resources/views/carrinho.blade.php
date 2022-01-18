@@ -3,9 +3,13 @@
 
 @section('content') 
     
-    <h3>Carrinho</h3>
+    <p>
+        <center>
+            <h3>Carrinho de Compras</h3>
+        </center>
+    </p>
     @if(isset($cart) && count($cart) > 0)  
-        <table class="table">
+        <table class="table" id="table_custom">
             <thead>
                 <tr>
                     <th>Excluir</th>
@@ -42,9 +46,13 @@
         </table>         
                 <form action="{{route('carrinho_finalizar')}}" method="post">
                     @csrf
-                    <center>Data de Check-In: <input type="date" name="data_checkIn" class="form-control"></center>
-                    <center>Data de Check-Out: <input type="date" name="data_checkOut" class="form-control"></center>
-                    <input type="submit" value="Finalizar campo" class="btn btn-lg btn-success">
+                    <p>
+                        <center>Data de Check-In: <input type="date" name="data_checkIn" class="form-control"></center>
+                    </p>
+                    <p>
+                        <center>Data de Check-Out: <input type="date" name="data_checkOut" class="form-control"></center>
+                    </p>
+                    <p><center><input type="submit" value="Finalizar campo" class="btn btn-lg btn-success"></center></p>
                 </form>
     @else
         <p>Nenhum carro foi selecionado</p>
