@@ -2,8 +2,8 @@ body{
     min-height: 100vh;
     padding-bottom: 100px;
     position:relative;
-    background-color: #5a5c5b;
-    color: white;
+    background-color: #F3F5F7;
+    color: #212529;
 }
 header{
     background-color: #fff;
@@ -19,7 +19,7 @@ header{
     width: 275px;
 }
 #table_custom{
-    color: white;
+    color: #212529;
 }
 
 .row{
@@ -54,10 +54,6 @@ header{
     background-color: #fff;
     padding: 5px 0;
    
-}
-
-#carouselExampleCaptions{
-    
 }
 
 #navbar a {
@@ -217,7 +213,7 @@ header{
 
 footer{
     text-align: center;
-    background-color: #353e48;
+    background-color: #212529;
     color: #fff;
     padding: 30px;
     position: absolute;
@@ -227,5 +223,9 @@ footer{
 
 footer p{
     margin-bottom: 0;
+}
+
+#navbar{
+    background-color: #00984A;
 }
 

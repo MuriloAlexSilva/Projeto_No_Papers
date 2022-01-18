@@ -15,7 +15,7 @@
 </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-dark">
                 <a href="#" class="navbar-brand">No Papers - Locadora de Veiculos</a>
                 <div class="collapse navbar-collapse">
                     <div class="navbar-nav">
