@@ -7,6 +7,11 @@
     <title>Relatório Financeiro</title>
 </head>
 <body>
+        <center>
+            <div>
+                <h1>No Papers - Locadora de Veiculos</h1>
+            </div>
+        </center>
         <div>
             <h2>Minhas Compras</h2>
         </div>
