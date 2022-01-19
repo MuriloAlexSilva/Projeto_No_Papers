@@ -8,7 +8,7 @@ class Carro extends RModel
   protected $fillable = ['nome','valor','foto','descricao','categoria_id'];
 
   public function category(){
-    return $this->belongsTo('App\Models\Categoria');
+    return $this->belongsTo('App\Models\Categoria','categoria_id','id');
   }
   public function cars(){
     return $this->belongsTo('App\Models\ItensPedido');

@@ -53,7 +53,6 @@
         <footer>
             <center>
                 <p>No Papers - Locadora de Veiculos</p>
-                <p>Desenvolvido por Macedo Apps</p>
             </center>
         </footer>
     </body>
