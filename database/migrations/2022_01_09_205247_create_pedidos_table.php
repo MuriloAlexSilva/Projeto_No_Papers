@@ -18,9 +18,9 @@ class CreatePedidosTable extends Migration
             $table->datetime("data_checkIn");
             $table->datetime("data_checkOut");
             $table->string("status",4);
-            $table->integer("usuario_id")->unsigned();
+            $table->integer("user_id")->unsigned();
             $table->timestamps();
-            $table->foreign("usuario_id")->references("id")->on("users")->onDelete("cascade");
+            $table->foreign("user_id")->references("id")->on("users")->onDelete("cascade");
 
         });
     }

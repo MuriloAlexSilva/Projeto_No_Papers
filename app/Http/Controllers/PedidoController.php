@@ -32,7 +32,7 @@ class PedidoController extends Controller
   public function historico(Request $request){
     $data  = [];
     $idusuario = \Auth::user()->id;  
-    $listaPedido = ItensPedido::with('pedidos')->where("usuario_id",$idusuario)->orderBy("data_checkIn","desc")->get();//Troquei de ItensPedido para pedido
+    $listaPedido = Pedido::with('pedidos')->where("user_id",$idusuario)->orderBy("data_checkIn","desc")->get();//Troquei de ItensPedido para pedido
     $data["lista"] = $listaPedido; 
     return view("compra/historico",$data);
   }

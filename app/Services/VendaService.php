@@ -28,7 +28,7 @@ class VendaService{
             \DB::beginTransaction();
             $dtHoje = new \DateTime();
             $pedido = new Pedido();
-            $pedido->usuario_id = $user->id;
+            $pedido->user_id = $user->id;
             $pedido->status = 'PEN';
             $pedido->data_checkIn = $checkIn;
             $pedido->data_checkOut = $checkOut;
