@@ -12,3 +12,5 @@ Este é um projeto desenvolvido com Laravel,JetStream e Spatie.
 - Somente o Administrador do Sistema pode inserir novos vendedores
 - Somente o Vendedor pode realizar o CheckOut do veiculo
 - Somente o Administrador tem acesso ao relatório do sistema
+
+<a href="public/index.php">Abrir projeto</a>
